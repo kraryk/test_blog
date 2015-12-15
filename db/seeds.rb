@@ -5,5 +5,4 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-P2 = Post.create(title: "Post2", body: "To jest post numer Jeden")
-P3= Post.create(title: "Post3", body: "To jest post numer Dwa")
+m = User.create(first_name: 'test', last_name: 'blog', email: 'test@email.com', password: 'test1', password_confirmation: 'test1', role: 'editor')

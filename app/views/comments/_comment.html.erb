@@ -8,8 +8,11 @@
   <%= comment.body %>
 </p>
 
+
+<% if current_user && current_user.editor? %> 
 <p>
   <%= link_to 'Destroy Comment', [comment.post, comment],
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
 </p>
+<% end %>
