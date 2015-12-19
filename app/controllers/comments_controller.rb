@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
 
  # DELETE /comments/1
   def destroy
-	@post = Post.find(params[:post_id])
+	  @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
   	@comment.destroy
   	redirect_to post_path(@post)

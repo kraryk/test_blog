@@ -15,6 +15,9 @@ group :production do
   gem 'rails_12factor'
 end
 
+#Gem for devise
+gem 'devise'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0.rc2'
 
