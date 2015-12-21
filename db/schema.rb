@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151218094315) do
+ActiveRecord::Schema.define(version: 20151221104954) do
 
   create_table "comments", force: true do |t|
     t.string   "commenter"
@@ -31,11 +31,10 @@ ActiveRecord::Schema.define(version: 20151218094315) do
   create_table "users", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "role"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
