@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
  
  # before_action :require_user, only: [:new, :edit, :update, :destroy]
-  before_action :require_editor, only: [:new, :edit, :update, :destroy]
+ # before_action :require_editor, only: [:new, :edit, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   
   # GET /posts

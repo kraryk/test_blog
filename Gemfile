@@ -9,6 +9,7 @@ gem 'rails', '4.0.0.rc2'
 #Changes for Heroku
 group :development do
   gem 'sqlite3'
+  gem 'carrierwave'
 end
 group :production do
   gem 'pg'
