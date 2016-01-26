@@ -20,6 +20,9 @@ gem 'carrierwave'
 #Gem for devise
 gem 'devise'
 
+#Gem for pry
+gem 'pry'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0.rc2'
 

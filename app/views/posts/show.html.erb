@@ -9,7 +9,7 @@
 
 <p>
   <strong>Tags:</strong>
-  <%= render @post.tags %>
+  <%= @post.present_tags %>
 </p>
 
 <%= image_tag(@post.picture_url, :width => 600) if @post.picture.present? %>

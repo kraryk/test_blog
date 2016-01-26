@@ -4,4 +4,8 @@ class Post < ActiveRecord::Base
 	validates :title, presence: true, length: { minimum: 5 }
 
 	mount_uploader :picture, PictureUploader
+
+	def present_tags
+		return self.tags.map(&:name).join(", ")
+	end
   end

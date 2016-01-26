@@ -25,9 +25,19 @@ class PostsController < ApplicationController
   # POST /posts
   def create
     @post = Post.new(post_params)
-
     if @post.save
-      redirect_to @post, notice: 'Post was successfully created.'
+      tag_params.split(",").each do |tag_new|
+        allready_exist = false
+        Tag.find_each do |tag_db|
+          if (tag_db[:name] == tag_new)
+            allready_exist = true
+            @post.tags << tag_db
+            break
+          end 
+        end
+        @post.tags.create(:name => tag_new) if !allready_exist
+      end
+      redirect_to posts_url, notice: 'Post was successfully updated.'
     else
       render action: 'new'
     end
@@ -36,6 +46,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   def update
     if @post.update(post_params)
+      # brak update'u dla tagów
       redirect_to @post, notice: 'Post was successfully updated.'
     else
       render action: 'edit'
@@ -58,5 +69,9 @@ class PostsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def post_params
     params.require(:post).permit(:title, :body, :picture)
+  end
+
+  def tag_params
+    params[:post_tags]
   end
 end
