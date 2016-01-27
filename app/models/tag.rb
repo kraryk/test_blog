@@ -2,8 +2,8 @@ class Tag < ActiveRecord::Base
 	has_and_belongs_to_many :posts
 
 	def self.tags_from_params(tag_string)
-		SPRTR = ", "
-		return  tag_string.split(SPRTR)
+		SEPARATOR = ", "
+		return  tag_string.split(SEPARATOR)
 	end
 
 	def self.find_or_create(tag_names)
