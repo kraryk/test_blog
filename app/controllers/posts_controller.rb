@@ -25,21 +25,17 @@ class PostsController < ApplicationController
   # POST /posts
   def create
     @post = Post.new(post_params)
+    tag_names = Tag.tags_from_params(tag_params)
+    tags = Tag.find_or_create(tag_names)
+    binding.pry
     if @post.save
-      tag_params.split(",").each do |tag_new|
-        allready_exist = false
-        Tag.find_each do |tag_db|
-          if (tag_db[:name] == tag_new)
-            allready_exist = true
-            @post.tags << tag_db
-            break
-          end 
-        end
-        @post.tags.create(:name => tag_new) if !allready_exist
+      if @post.assign_tags(tags)
+        redirect_to posts_url, notice: 'Post was successfully updated.'
+      else
+        render action: 'new'
       end
-      redirect_to posts_url, notice: 'Post was successfully updated.'
     else
-      render action: 'new'
+        render action: 'new'
     end
   end
 

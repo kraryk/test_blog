@@ -8,4 +8,8 @@ class Post < ActiveRecord::Base
 	def present_tags
 		return self.tags.map(&:name).join(", ")
 	end
+
+	def assign_tags(tags)
+		self.tags << tags
+	end
   end
